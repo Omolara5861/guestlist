@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas&display=swap');
+
+:root {
+	--wine-red: #C7375F;
+	--bright-red: #D42D2F;
+	--dark-green: #344D2F;
+	--light-green: #77A047;
+	--gold: #FAC57D;
+	--snow: #F0F4F7;
+  }
+  
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+	min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+	background-color: rgba(0,0,0,0.7);
+	background-blend-mode: soft-light;
+	background-image: url('AdobeStock_288903280.jpeg');
+	background-repeat: no-repeat;
+	font-family: 'Mountains of Christmas', cursive;
+}
+
+.container{
+	position: relative;
+	max-width: 800px;
+	padding: 10px;
+	margin: auto;
+}
+
+.title {
+	text-align: center;
+	color: snow;
+	margin: 50px auto;
+}
+
+.addGuest{
+	width: 100%;
+	display: flex;
+	padding: 10px 0;
+}
+.addGuest > input[type="text"]{
+	width: 90%;
+	color: var(--snow);
+	border:none;
+	border-bottom: 2px solid #666;
+	background: none;
+	padding: 10px;
+	font-size: 22px;
+	outline: none;
+	flex: 2;
+}
+.addGuest button{
+	margin: 0 10px;
+	background: #000;
+	color: #fff;
+	font-size: 18px;
+	padding: 10px;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.notCompleted, .Completed{
+	margin: 5px 0;
+	padding: 20px;
+}
+h3{
+	font-size: 28px;
+	text-transform: uppercase;
+	text-align: center;
+	color: #fff;
+}
+ol{
+	list-style: none;
+	counter-reset: my-counter;
+}
+ol li{
+	width: 100%;
+	padding: 18px;
+	margin: 5px 0;
+	background: var(--gold);
+	font-size: 22px;
+	counter-increment: my-counter;
+}
+ol.Completed li{
+	background: var(--light-green);
+	color: var(--snow);
+}
+
+fa-check {
+	color: var(--dark-green);
+}
+
+.fa-trash {
+	color: var(--bright-red);
+}
+
+ol li::before{
+	content: counter(my-counter);
+	background: var(--dark-green);
+	width: 2rem;
+	height: 2rem;
+	border-radius: 50%;
+	display: inline-block;
+	line-height: 2rem;
+	text-align: center;
+	color: #fff;
+	margin-right: 0.5rem;
+}
+li button{
+	float: right;
+	padding: 5px;
+	font-size: 28px;
+	line-height: 28px;
+	margin-right: 15px;
+	background: none;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}

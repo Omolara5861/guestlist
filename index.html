@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Awesome To-Do List HTML,CSS & JavaScript</title>
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="main.css"> 
+</head>
+<body>
+	<div class="container">
+		<div class="title">
+			<h1>Christmas Guest List</h1>
+		</div>
+		<div class="addGuest">
+			<input type="text" placeholder="Enter a guest name">
+			<button>Add Guest</button>
+		</div>
+
+		<ol class="notCompleted">
+			<h3>Not Invited Yet</h3>
+		</ol>
+
+		<ol class="Completed">
+			<h3>Invited</h3>
+		</ol>
+	</div>
+
+	<script>
+		const input = document.querySelector('input');
+		const btn = document.querySelector('.addGuest > button');
+		const notCompleted = document.querySelector('.notCompleted');
+		const Completed = document.querySelector('.Completed');
+		let guests = ["Tobias", "Amin", "Illona Gold"];
+		
+
+		    guests.forEach((guest)=>{
+			let li = document.createElement("li");
+			li.innerText = guest;
+			Completed.appendChild(li);
+			})
+
+		btn.addEventListener('click', addList);
+		input.addEventListener('keyup', (e)=>{
+			(e.keyCode === 13 ? addList(e) : null);
+		})
+
+		function addList(e){
+
+			const newLi = document.createElement('li');
+			const checkBtn = document.createElement('button');
+			const delBtn = document.createElement('button');
+
+			checkBtn.innerHTML = '<i class="fa fa-check" title="click to invite guest"></i>';
+			delBtn.innerHTML = '<i class="fa fa-trash"></i>';
+           
+			if(input.value !==''){
+				newLi.textContent = input.value;
+				input.value = '';
+				notCompleted.appendChild(newLi);
+				newLi.appendChild(checkBtn);
+				newLi.appendChild(delBtn);
+			}
+
+			checkBtn.addEventListener('click', function(){
+				const parent = this.parentNode;
+				parent.remove();
+				Completed.appendChild(parent);
+				checkBtn.style.display = 'none';
+			});
+
+			delBtn.addEventListener('click', function(){
+				const parent = this.parentNode;
+				parent.remove();
+			});
+		}
+
+	</script>
+</body>
+</html>
